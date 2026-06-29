@@ -14,7 +14,7 @@ public class Enterprise {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 14)
-    private int cnpj;
+    private String cnpj;
 
     @Column(nullable = false)
     private String name;
