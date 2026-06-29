@@ -28,6 +28,9 @@ public class EnterpriseService{
     }
 
     public EnterpriseResponse create(EnterpriseRequest request){
+        if(enterpriseRepository.existsByEmail(request.email())){
+            throw new RuntimeException("Email already exists");
+        }
         Enterprise enterprise = new Enterprise(request);
         enterpriseRepository.save(enterprise);
         return new EnterpriseResponse(enterprise);
